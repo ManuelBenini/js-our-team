@@ -82,9 +82,24 @@ function CardStamp(counter) {
 const addBtn = document.getElementById('addMemberButton');
 // click che prende le informazioni del form
 addBtn.addEventListener('click', function(){
-  const memberName = document.getElementById('name').value;
-  const memberRole = document.getElementById('role').value;
-  const memberImg = document.getElementById('image').value;
+  let memberName = document.getElementById('name').value;
+  while(!isNaN(memberName)){
+    if (!isNaN(memberName)) {
+      memberName = prompt('Hai inserito un numero, riprovare ad inserire il nome')
+    }
+  }
+  let memberRole = document.getElementById('role').value;
+  while(!isNaN(memberRole)){
+    if (!isNaN(memberRole)) {
+      memberRole = prompt('Hai inserito un numero, riprovare ad inserire il ruolo')
+    }
+  }
+  let memberImg = document.getElementById('image').value;
+  while(!isNaN(memberImg)){
+    if (!isNaN(memberImg)) {
+      memberImg = prompt('Hai inserito un numero, riprovare ad inserire il percorso dell\'immagine')
+    }
+  }
   cardPush(memberName, memberRole, memberImg)
   lastCardStamp();
 })
