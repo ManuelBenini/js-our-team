@@ -43,7 +43,7 @@ const teamMembers = [
   },
 ];
 
-const card = document.querySelector('.team-container');
+const cardContainer = document.querySelector('.team-container');
 
 init();
 
@@ -51,9 +51,10 @@ init();
  * Funzione start del programma
  */
 function init() {
- for(let i in teamMembers){
-  CardStamp(i)
- }
+  cardContainer.innerHTML = '';
+  for(let i in teamMembers){
+    CardStamp(i)
+  }
 }
 
 /**
@@ -61,7 +62,7 @@ function init() {
  * @param {Number} counter 
  */
 function CardStamp(counter) {
-  card.innerHTML += 
+  cardContainer.innerHTML += 
  `
     <div class="team-card">
       <div class="card-image">
@@ -102,6 +103,7 @@ addBtn.addEventListener('click', function(){
   }
   cardPush(memberName, memberRole, memberImg)
   lastCardStamp();
+  formReset();
 })
 
 
@@ -127,4 +129,17 @@ function cardPush(name, role, img) {
     foto: img
   })
   console.log(teamMembers);
+}
+
+
+/**
+ * Reset del form dopo l'inserimento dei dati
+ * @param {string} name 
+ * @param {string} role 
+ * @param {string} img 
+ */
+function formReset() {
+  document.getElementById('name').value = '';
+  document.getElementById('role').value = '';
+  document.getElementById('image').value = '';
 }
